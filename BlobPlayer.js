@@ -6,13 +6,13 @@ class BlobPlayer {
     this.vx = 0;
     this.vy = 0;
 
-    this.accel = 0.55;
+    this.accel = 0.5;
     this.maxRun = 4.0;
 
-    this.gravity = 0.65;
-    this.jumpV = -11.0;
+    this.gravity = 0.4;
+    this.jumpV = -20.5;
 
-    this.frictionAir = 0.995;
+    this.frictionAir = 0.998;
     this.frictionGround = 0.88;
 
     this.onGround = false;
@@ -56,6 +56,10 @@ class BlobPlayer {
     this.vx = constrain(this.vx, -this.maxRun, this.maxRun);
 
     this.vy += this.gravity;
+
+    if (this.vy > 0) {
+      this.vy *= 0.9; // gentle float while falling
+    }
 
     // collider box
     let box = {

@@ -46,7 +46,7 @@ function loadLevel(i) {
   player.spawnFromLevel(level);
 
   cam.x = player.x - width / 2;
-  cam.y = 0;
+  cam.y = player.y - height / 2;
   cam.clampToWorld(level.w, level.h);
 }
 
@@ -61,8 +61,9 @@ function draw() {
   }
 
   // --- view state (data-driven smoothing) ---
-  cam.followSideScrollerX(player.x, level.camLerp);
-  cam.y = 0;
+  cam.followSideScrollerX(player.x, player.vx, level.camLerp);
+  cam.followSideScrollerY(player.y, player.vy, level.camLerp);
+
   cam.clampToWorld(level.w, level.h);
 
   // --- draw ---
