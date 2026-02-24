@@ -76,6 +76,7 @@ function draw() {
   fill(0);
   noStroke();
   text(level.name + " (Example 5)", 10, 18);
+  text("keep going right and navigate through platforms!", 495, 18);
   text("A/D or ←/→ move • Space/W/↑ jump • Fall = respawn", 10, 36);
   text("camLerp(JSON): " + level.camLerp + "  world.w: " + level.w, 10, 54);
   text("cam: " + cam.x + ", " + cam.y, 10, 90);
